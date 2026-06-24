@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Log in | ResumeAnalyzer</title>
+
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/themes/metroui.css" />
+    <script src="https://cdn.jsdelivr.net/npm/noty/lib/noty.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.2.0-beta/noty.min.css">
+
+</head>
+
+<body>
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="../images/icon.png" alt="Resume Analyzer Logo" height="50">
+            <span>Resume<span class="highlight">Analyzer</span></span>
+        </div>
+
+    </nav>
+    <div class="container">
+
+        <div class="left-panel">
+
+            <div class="overlay">
+
+                <h1>ResumeAnalyzer</h1>
+
+                <p>
+                    Welcome back! Login to access your
+                    AI-powered resume analysis,
+                    ATS reports, and career insights.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="right-panel">
+
+            <form id="loginForm" class="signup-card">
+
+                <h2>Welcome Back</h2>
+
+                <p class="subtitle">
+                    Login to your account
+                </p>
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input type="email" id="email" placeholder="Email Address" required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input type="password" id="password" placeholder="Password" required>
+
+                    <i class="fa-solid fa-eye togglePassword"></i>
+
+                </div>
+
+                <div class="remember">
+
+                    <input type="checkbox" id="remember">
+
+                    <label for="remember">
+                        Remember Me
+                    </label>
+
+                </div>
+
+                <button type="submit" id="loginBtn">
+
+                    Login
+
+                </button>
+
+                <p class="bottom-text">
+
+                    Don't have an account?
+
+                    <a href="signup.html">
+                        Sign Up
+                    </a>
+
+                </p>
+            </form>
+
+        </div>
+
+    </div>
+    <footer class="footer">
+
+        <h2>ResumeAnalyzer</h2>
+
+        <p>
+            AI Powered Resume Analysis Platform
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+
+        </div>
+        <div class="social-icons">
+
+            <a href="#">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-twitter"></i>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+        </div>
+        <p class="copyright">
+            © 2026 ResumeAnalyzer. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- <script src="../js/main.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.2.0-beta/noty.min.js"></script>
+
+    <script>
+
+        const togglePassword =
+            document.querySelector(".togglePassword");
+
+        const passwordInput =
+            document.getElementById("password");
+
+        togglePassword.addEventListener("click", () => {
+
+            passwordInput.type =
+                passwordInput.type === "password"
+                    ? "text"
+                    : "password";
+
+            togglePassword.classList.toggle("fa-eye-slash");
+
+        });
+
+        document
+            .getElementById("loginForm")
+            .addEventListener("submit", async (e) => {
+
+                e.preventDefault();
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+                const password =
+                    document.getElementById("password").value.trim();
+
+                if (!email || !password) {
+
+                    showNoty(
+                        "error",
+                        "Please fill all fields"
+                    );
+
+                    return;
+                }
+
+                const button =
+                    document.getElementById("loginBtn");
+
+                button.disabled = true;
+                button.innerText = "Logging In...";
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/api/auth/login",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+
+                                body: JSON.stringify({
+                                    email,
+                                    password
+                                })
+                            }
+                        );
+
+                    const data =
+                        await response.json();
+
+                    if (response.ok) {
+
+                        localStorage.setItem(
+                            "token",
+                            data.token
+                        );
+
+                        showNoty(
+                            "success",
+                            "Login Successful"
+                        );
+
+                        setTimeout(() => {
+
+                            window.location.href =
+                                "../index.html";
+
+                        }, 1500);
+
+                        localStorage.setItem(
+                            "isLoggedIn",
+                            "true"
+                        );
+
+                        localStorage.setItem(
+                            "user",
+                            JSON.stringify(data.user)
+                        );
+
+                    } else {
+
+                        showNoty(
+                            "error",
+                            data.message
+                        );
+
+                    }
+
+                } catch (error) {
+
+                    showNoty(
+                        "error",
+                        "Server error"
+                    );
+
+                } finally {
+
+                    button.disabled = false;
+                    button.innerText = "Login";
+
+                }
+
+            });
+
+        function showNoty(type, message) {
+
+            const finalMessage =
+                message || "Something went wrong";
+
+            if (typeof Noty !== "undefined") {
+
+                new Noty({
+
+                    type: type,
+
+                    layout: "topRight",
+
+                    theme: "metroui",
+
+                    text: `${type === "success" ? "✅" :
+                        type === "error" ? "❌" :
+                            type === "info" ? "ℹ️" : "🔔"
+                        } ${finalMessage}`,
+
+                    timeout: 3000,
+
+                    progressBar: true,
+
+                    containerStyle: {
+
+                        top: "100px",
+                        right: "20px"
+
+                    },
+
+                    animation: {
+
+                        open:
+                            "animate__animated animate__fadeInRight",
+
+                        close:
+                            "animate__animated animate__fadeOutRight"
+
+                    }
+
+                }).show();
+
+            } else {
+
+                alert(finalMessage);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

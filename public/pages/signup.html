@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | ResumeAnalyzer</title>
+
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/themes/metroui.css" />
+    <script src="https://cdn.jsdelivr.net/npm/noty/lib/noty.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.2.0-beta/noty.min.css">
+
+</head>
+
+<body>
+    <nav class="navbar">
+
+
+        <div class="logo">
+            <img src="../images/icon.png" alt="Resume Analyzer Logo" height="50">
+            <span>Resume<span class="highlight">Analyzer</span></span>
+        </div>
+
+    </nav>
+    <div class="container">
+
+        <div class="left-panel">
+
+            <div class="overlay">
+
+                <h1>ResumeAnalyzer</h1>
+
+                <p>
+                    Create your account and unlock
+                    AI-powered resume insights,
+                    ATS scoring, and career recommendations.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="right-panel">
+
+            <form id="signupForm" class="signup-card">
+
+                <h2>Create Account</h2>
+
+                <p class="subtitle">
+                    Join ResumeAnalyzer today
+                </p>
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <input type="text" id="username" placeholder="Username" required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input type="email" id="email" placeholder="Email Address" required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input type="password" id="password" placeholder="Password" required>
+
+                    <i class="fa-solid fa-eye togglePassword"></i>
+
+                </div>
+
+                <div class="input-group">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+                </div>
+
+                <div class="remember">
+
+                    <input type="checkbox" id="terms">
+
+                    <label for="terms">
+                        I agree to the Terms & Conditions
+                    </label>
+
+                </div>
+
+                <button type="submit" id="signupBtn">
+
+                    Create Account
+
+                </button>
+
+                <p class="bottom-text">
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+    <footer class="footer">
+
+        <h2>ResumeAnalyzer</h2>
+
+        <p>
+            AI Powered Resume Analysis Platform
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+
+        </div>
+        <div class="social-icons">
+
+            <a href="#">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-twitter"></i>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+        </div>
+        <p class="copyright">
+            © 2026 ResumeAnalyzer. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- <script src="../js/main.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.2.0-beta/noty.min.js"></script>
+
+    <script>
+
+        const togglePassword =
+            document.querySelector(".togglePassword");
+
+        const passwordInput =
+            document.getElementById("password");
+
+        togglePassword.addEventListener("click", () => {
+
+            const type =
+                passwordInput.type === "password"
+                    ? "text"
+                    : "password";
+
+            passwordInput.type = type;
+
+            togglePassword.classList.toggle("fa-eye-slash");
+
+        });
+
+        document
+            .getElementById("signupForm")
+            .addEventListener("submit", async (e) => {
+
+                e.preventDefault();
+
+                const username =
+                    document.getElementById("username").value.trim();
+
+                const email =
+                    document.getElementById("email").value.trim();
+
+                const password =
+                    document.getElementById("password").value.trim();
+
+                const confirmPassword =
+                    document.getElementById("confirmPassword").value.trim();
+
+                const terms =
+                    document.getElementById("terms").checked;
+
+                if (
+                    !username ||
+                    !email ||
+                    !password ||
+                    !confirmPassword
+                ) {
+
+                    showNoty("error",
+                        "Please fill all fields");
+
+                    return;
+                }
+
+                if (password.length < 6) {
+
+                    showNoty(
+                        "error",
+                        "Password must be at least 6 characters"
+                    );
+
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+
+                    showNoty(
+                        "error",
+                        "Passwords do not match"
+                    );
+
+                    return;
+                }
+
+                if (!terms) {
+
+                    showNoty(
+                        "error",
+                        "Please accept Terms & Conditions"
+                    );
+
+                    return;
+                }
+
+                const button =
+                    document.getElementById("signupBtn");
+
+                button.disabled = true;
+                button.innerText = "Creating Account...";
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/api/auth/signup",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body: JSON.stringify({
+                                    username,
+                                    email,
+                                    password
+                                })
+                            }
+                        );
+
+                    const data =
+                        await response.json();
+
+                    if (response.ok) {
+
+                        showNoty(
+                            "success",
+                            data.message
+                        );
+
+                        setTimeout(() => {
+
+                            window.location.href =
+                                "login.html";
+
+                        }, 2000);
+
+                    } else {
+
+                        showNoty(
+                            "error",
+                            data.message
+                        );
+                    }
+
+                } catch (error) {
+
+                    showNoty(
+                        "error",
+                        "Server error"
+                    );
+
+                } finally {
+
+                    button.disabled = false;
+
+                    button.innerText =
+                        "Create Account";
+
+                }
+
+            });
+
+        function showNoty(type, message) {
+
+            const finalMessage =
+                message || "Something went wrong";
+
+            if (typeof Noty !== "undefined") {
+
+                new Noty({
+
+                    type: type,
+
+                    layout: "topRight",
+
+                    theme: "metroui",
+
+                    text: `${type === "success" ? "✅" :
+                        type === "error" ? "❌" :
+                            type === "info" ? "ℹ️" : "🔔"
+                        } ${finalMessage}`,
+
+                    timeout: 3000,
+
+                    progressBar: true,
+
+                    containerStyle: {
+
+                        top: "100px",
+                        right: "20px"
+
+                    },
+
+                    animation: {
+
+                        open:
+                            "animate__animated animate__fadeInRight",
+
+                        close:
+                            "animate__animated animate__fadeOutRight"
+
+                    }
+
+                }).show();
+
+            } else {
+
+                alert(finalMessage);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

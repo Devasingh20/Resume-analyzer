@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Analysis Dashboard</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <!-- <div id="skills"></div> -->
+        <div class="logo">
+            <img src="../images/icon.png" alt="Resume Analyzer Logo" height="50">
+            <span>Resume<span class="highlight">Analyzer</span></span>
+        </div>
+
+        <div class="userName"></div>
+
+    </nav>
+    <div class="page-title">
+
+
+        <h1>
+            Resume Analysis Dashboard
+        </h1>
+
+        <p>
+            Here's your AI-powered resume analysis report
+        </p>
+
+
+    </div>
+
+    <section class="dashboard">
+
+        <div class="dashboard-header">
+
+            <h1>
+
+                <i class="fa-solid fa-file-lines"></i>
+
+                Resume Analysis Report
+
+            </h1>
+
+            <p>
+                AI-powered ATS analysis of your resume
+            </p>
+
+        </div>
+
+        <!-- ATS Score + Summary -->
+        <!-- Statistics Cards -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                </div>
+
+                <div class="stat-content">
+
+                    <h3 id="atsStat">
+                        0
+                    </h3>
+
+                    <p>
+                        ATS Score
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-code"></i>
+
+                </div>
+
+                <div class="stat-content">
+
+                    <h3 id="skillsCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Skills Found
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                </div>
+
+                <div class="stat-content">
+
+                    <h3 id="improvementsCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Improvements
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                </div>
+
+                <div class="stat-content">
+
+                    <h3 id="rolesCount">
+                        0
+                    </h3>
+
+                    <p>
+                        Suggested Roles
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="top-section">
+
+            <div class="card score-card">
+
+                <h2>ATS Score</h2>
+
+                <div class="score-circle">
+
+                    <span id="atsScore">
+                        0
+                    </span>
+
+                </div>
+
+                <p id="scoreLabel">
+
+                </p>
+
+            </div>
+
+            <div class="card summary-card">
+
+                <h2>
+
+                    <i class="fa-solid fa-clipboard-list"></i>
+
+                    Summary
+
+                </h2>
+
+                <p id="summary">
+
+                    Loading analysis...
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Skills -->
+        <div class="dual-grid">
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-code"></i>
+
+                    Top Skills
+
+                </h2>
+
+                <div id="skills">
+
+                </div>
+
+            </div>
+
+            <!-- Strengths -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Key Strengths
+
+                </h2>
+
+                <ul id="strengths">
+
+                </ul>
+
+            </div>
+        </div>
+
+
+        <!-- Improvements -->
+
+        <div class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                Areas for Improvement
+
+            </h2>
+
+            <ul id="improvements">
+
+            </ul>
+
+        </div>
+
+        <!-- Recommended Roles -->
+
+        <div class="card">
+
+            <h2>
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                Recommended Roles
+
+            </h2>
+
+            <div id="roles" class="tags">
+
+            </div>
+
+        </div>
+        <button id="downloadBtn">
+
+            <i class="fa-solid fa-download"></i>
+
+            Download Report
+
+        </button>
+
+    </section>
+    <footer class="footer">
+
+        <h2>ResumeAnalyzer</h2>
+
+        <p>
+            AI Powered Resume Analysis Platform
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+
+        </div>
+        <div class="social-icons">
+
+            <a href="#">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-twitter"></i>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+        </div>
+        <p class="copyright">
+            © 2026 ResumeAnalyzer. All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <script src="../js/dashboard.js"></script>
+    <script>
+        const user = JSON.parse(
+            localStorage.getItem("user")
+        );
+
+        if (user && user.username) {
+
+            document.querySelector(".userName").innerHTML = `
+
+            <div class="user-badge">
+
+                <span>
+                    <i class="fa-solid fa-user"></i>
+                    Hello, ${user.username}
+                </span>
+
+            </div>
+
+        `;
+        }
+    </script>
+
+</body>
+
+</html>

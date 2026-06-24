@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Analyzer AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/themes/metroui.css" />
+    <script src="https://cdn.jsdelivr.net/npm/noty/lib/noty.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.2.0-beta/noty.min.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="./images/icon.png" alt="Resume Analyzer Logo" height="50">
+            <span>Resume<span class="highlight">Analyzer</span></span>
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#features">Features</a></li>
+
+            <li><a href="#how-it-works">How It Works</a></li>
+
+            <li><a href="#">Contact</a></li>
+
+            <li><a href="#">History</a></li>
+            <div class="nav-buttons">
+
+                <button class="login-btn" id="loginBtn">
+                    Login
+                </button>
+
+                <button class="signup-btn" id="signupBtn">
+                    Sign Up
+                </button>
+
+            </div>
+        </ul>
+
+
+
+        <div class="menu-toggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <div class="badge">
+                ✨ AI Powered Resume Analysis
+            </div>
+            <span class="userName"></span>
+            <h1>
+                Analyze Your Resume.<br>
+                <span>Get Hired Faster.</span>
+            </h1>
+
+            <p>
+                Upload your resume and receive an AI-powered ATS score,
+                skill analysis, career insights and personalized
+                recommendations.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn" id="uploadResumeBtn">
+                    <i class="fa-solid fa-file-arrow-up"></i>
+                    Upload Resume
+                </button>
+
+                <button class="secondary-btn">
+                    Learn About ATS
+                </button>
+
+            </div>
+
+            <div class="security">
+
+                <i class="fa-solid fa-lock"></i>
+
+                Your data is secure and confidential
+
+            </div>
+
+        </div>
+
+        <!-- DASHBOARD MOCKUP -->
+
+        <div class="hero-right">
+
+            <div class="dashboard">
+                <div class="report-header">
+
+                    <i class="fa-regular fa-file-lines"></i>
+
+                    <h3> Sample Resume Analysis Report</h3>
+
+                </div>
+                <div class="top-card">
+
+                    <div class="score-card">
+
+                        <div class="circle">
+
+                            <span>85</span>
+
+                        </div>
+
+                        <h3>ATS Score</h3>
+
+                        <small>Excellent</small>
+
+                    </div>
+
+                    <div class="strength-card">
+
+                        <h3>Key Strengths</h3>
+
+                        <ul>
+
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Well-structured experience section
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Strong technical skills match
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Good use of action verbs
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-circle-check"></i>
+                                Projects are clearly mentioned
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="bottom-cards">
+
+                    <!-- Top Skills -->
+
+                    <div class="mini-card">
+
+                        <h4>
+                            <i class="fa-solid fa-code"></i>
+                            Top Skills
+                        </h4>
+
+                        <div class="skill">
+
+                            <div class="skill-info">
+                                <span>Java</span>
+                                <span>90%</span>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-fill" style="width:90%"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="skill">
+
+                            <div class="skill-info">
+                                <span>React</span>
+                                <span>85%</span>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-fill" style="width:85%"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="skill">
+
+                            <div class="skill-info">
+                                <span>Node.js</span>
+                                <span>80%</span>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-fill" style="width:80%"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="skill">
+
+                            <div class="skill-info">
+                                <span>MongoDB</span>
+                                <span>75%</span>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-fill" style="width:75%"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Improvements -->
+
+                    <div class="mini-card">
+
+                        <h4>
+                            <i class="fa-solid fa-lightbulb"></i>
+                            Improvements
+                        </h4>
+
+                        <ul>
+
+                            <li>
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                Add measurable achievements
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                Improve professional summary
+                            </li>
+
+                            <li>
+                                <i class="fa-solid fa-arrow-trend-up"></i>
+                                Include certifications
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <!-- Suggested Roles -->
+
+                    <div class="mini-card">
+
+                        <h4>
+                            <i class="fa-solid fa-briefcase"></i>
+                            Suggested Roles
+                        </h4>
+
+                        <div class="role-tags">
+
+                            <span>Frontend Developer</span>
+
+                            <span>Full Stack Developer</span>
+
+                            <span>Software Engineer</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <p class="preview-note">
+                    This is a sample analysis report. Upload your resume to generate your personalized ATS score and
+                    recommendations.
+                </p>
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+
+    <section id="how-it-works" class="how-it-works">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+                Simple Process
+            </span>
+
+            <h2 style="color: #050238; font-size: 37px; margin-top: 10px;">
+                How ResumeAnalyzer Works
+            </h2>
+
+            <p>
+                Upload your resume and receive detailed AI-powered insights in just a few seconds.
+            </p>
+
+        </div>
+
+        <div class="steps">
+
+            <!-- Step 1 -->
+
+            <div class="step-card reveal">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-file-arrow-up"></i>
+                </div>
+
+                <h3>Upload Your Resume</h3>
+
+                <p>
+                    Upload your resume in PDF format securely with a single click. Your data remains private and
+                    protected throughout the analysis process.
+                </p>
+
+            </div>
+
+            <!-- Step 2 -->
+
+            <div class="step-card reveal">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <h3>AI-Powered Analysis</h3>
+
+                <p>
+                    Our AI analyzes your resume, evaluates ATS compatibility, identifies strengths, detects missing
+                    skills, and assesses overall quality.
+                </p>
+
+            </div>
+
+            <!-- Step 3 -->
+
+            <div class="step-card reveal">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <h3>Get Actionable Insights</h3>
+
+                <p>
+                    Receive ATS scores, personalized suggestions, career role recommendations, and practical
+                    improvements to increase your interview chances.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="features" class="features">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+                Powerful Features
+            </span>
+
+            <h2 style="color: #050238; font-size: 37px; margin-top: 10px;">
+                Everything You Need
+            </h2>
+
+        </div>
+
+        <div class="feature-grid">
+
+            <div class="feature-card reveal">
+                <i class="fa-solid fa-bullseye"></i>
+                <h3>ATS Score Analysis</h3>
+                <p>Get an accurate ATS score and identify areas that need improvement.</p>
+            </div>
+
+            <div class="feature-card reveal">
+                <i class="fa-solid fa-lightbulb"></i>
+                <h3>AI-Powered Suggestions</h3>
+                <p>Receive personalized recommendations to strengthen your resume.</p>
+            </div>
+
+            <div class="feature-card reveal">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>Career Role Matching</h3>
+                <p>Discover job roles that best match your skills and experience.</p>
+            </div>
+
+            <div class="feature-card reveal">
+                <i class="fa-solid fa-shield"></i>
+                <h3>Secure & Private</h3>
+                <p>Your resume data is processed securely and never shared with others.</p>
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+
+        <h2>ResumeAnalyzer</h2>
+
+        <p>
+            AI Powered Resume Analysis Platform
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+
+        </div>
+        <div class="social-icons">
+
+            <a href="#">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="#">
+                <i class="fab fa-twitter"></i>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+        </div>
+        <p class="copyright">
+            © 2026 ResumeAnalyzer. All Rights Reserved.
+        </p>
+
+    </footer>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

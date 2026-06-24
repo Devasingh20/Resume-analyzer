@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Upload Resume | ResumeAnalyzer</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/upload.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/themes/metroui.css" />
+    <script src="https://cdn.jsdelivr.net/npm/noty/lib/noty.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.2.0-beta/noty.min.css">
+</head>
+
+<body>
+
+    <!-- Protect Page -->
+
+    <!-- <script>
+
+        const isLoggedIn =
+            localStorage.getItem("isLoggedIn");
+
+        if (isLoggedIn !== "true") {
+
+            window.location.href =
+                "login.html";
+
+        }
+
+    </script> -->
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="../images/icon.png" alt="Resume Analyzer Logo" height="50">
+            <span>Resume<span class="highlight">Analyzer</span></span>
+        </div>
+
+        <div class="userName"></div>
+
+    </nav>
+
+    <!-- Upload Section -->
+
+    <section class="upload-section">
+
+        <div class="upload-container">
+
+            <div class="upload-header">
+
+                <h1>
+                    Upload Your Resume
+                </h1>
+
+                <p>
+                    Upload your PDF resume and receive
+                    ATS score, skill analysis,
+                    career insights and AI recommendations.
+                </p>
+
+            </div>
+
+            <form id="uploadForm">
+
+                <label class="drop-zone">
+
+                    <input type="file" id="resumeInput" accept=".pdf" hidden name="resume">
+
+                    <i class="fa-solid fa-file-arrow-up"></i>
+
+                    <h3>
+                        Drag & Drop Resume
+                    </h3>
+
+                    <p>
+                        or click to browse files
+                    </p>
+
+                    <small>
+                        PDF files only
+                    </small>
+
+                </label>
+
+                <div id="filePreview">
+
+                    No file selected
+
+                </div>
+
+                <button type="submit" class="analyze-btn">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    Analyze Resume
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- <div id="resumeText">hi</div> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.2.0-beta/noty.min.js"></script>
+
+    <script src="../js/upload.js">
+    </script>
+
+</body>
+
+</html>
