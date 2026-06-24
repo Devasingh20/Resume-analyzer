@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Resume History | ResumeAnalyzer
+    </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/history.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <img src="../images/icon.png" alt="Resume Analyzer Logo" height="50">
+            <span>Resume<span class="highlight">Analyzer</span></span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/pages/upload.html">
+
+                Upload
+
+            </a>
+
+            <a href="/pages/history.html" class="active">
+
+                History
+
+            </a>
+
+        </div>
+
+        <div class="userName">
+
+        </div>
+
+    </nav>
+
+    <!-- Page Heading -->
+
+    <div class="page-title">
+
+        <h1>
+
+            Resume Analysis History
+
+        </h1>
+
+        <p>
+
+            View all your previous resume analyses
+            and revisit detailed reports anytime.
+
+        </p>
+
+    </div>
+
+    <!-- History Container -->
+
+    <section class="history-section">
+
+        <div id="historyContainer" class="history-grid">
+
+            <!-- Dynamic Cards -->
+
+        </div>
+
+    </section>
+
+    <script>
+
+        const user =
+            JSON.parse(
+                localStorage.getItem(
+                    "user"
+                )
+            );
+
+        if (
+            user &&
+            user.username
+        ) {
+
+            document.querySelector(
+                ".userName"
+            ).innerHTML = `
+
+            <div class="user-badge">
+
+                <span>
+
+                    <i class="fa-solid fa-user"></i>
+
+                    Hello,
+                    ${user.username}
+
+                </span>
+
+            </div>
+
+        `;
+
+        }
+
+    </script>
+
+    <script src="../js/history.js">
+
+    </script>
+
+</body>
+
+</html>
