@@ -88,7 +88,12 @@ document.getElementById("signupBtn")
         window.location.href = "pages/signup.html";
 
     });
+document.getElementById("historyBtn")
+    .addEventListener("click", () => {
 
+        window.location.href = "pages/history.html";
+
+    });
 
 const user = JSON.parse(
     localStorage.getItem("user")

@@ -143,7 +143,9 @@ body {
     font-size: 28px;
     cursor: pointer;
 }
-
+#historyBtn{
+  cursor: pointer;
+}
 /* HERO */
 
 .hero {
