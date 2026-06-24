@@ -360,3 +360,63 @@ body {
     }
 
 }
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        display: flex;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        padding: 15px;
+
+        gap: 10px;
+
+    }
+
+    .logo {
+
+        font-size: 18px;
+
+        gap: 8px;
+
+    }
+
+    .logo span {
+
+        font-size: 16px;
+
+    }
+
+    .nav-links {
+
+        display: flex;
+
+        gap: 12px;
+
+    }
+
+    .nav-links a {
+
+        font-size: 14px;
+
+        font-weight: 600;
+
+    }
+
+    .user-badge {
+
+        padding: 6px 12px;
+
+        font-size: 12px;
+
+        white-space: nowrap;
+
+    }
+
+}
