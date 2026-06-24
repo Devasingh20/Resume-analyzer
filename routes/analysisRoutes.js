@@ -23,8 +23,7 @@ router.get("/:id", async (req, res) => {
     }
 
 });
-const router =
-    express.Router();
+
 
 const {
 
