@@ -46,6 +46,8 @@ const pdfRoutes =
 const analysisRoutes =
     require("./routes/analysisRoutes");
 dotenv.config();
+const profileRoutes =
+    require("./routes/profileRoutes");
 
 const app = express(); // ✅ Create app first
 
@@ -89,7 +91,13 @@ app.use(
 );
 app.use("/api/auth", authRoutes);
 app.use("/api/resume", resumeRoutes);
+app.use(
 
+    "/api/profile",
+
+    profileRoutes
+
+);
 // Test Route
 app.get("/", (req, res) => {
 

@@ -1,40 +1,4 @@
-// const fs = require("fs");
-// const pdfParse = require("pdf-parse");
 
-// const analyzeResume = async (req, res) => {
-
-//     try {
-
-//         console.log("ROUTE HIT");
-
-//         const pdfBuffer =
-//             fs.readFileSync(req.file.path);
-
-//         const data =
-//             await pdfParse(pdfBuffer);
-
-//         res.json({
-//             success: true,
-//             message: "Resume parsed successfully",
-//             text: data.text
-//         });
-
-//     } catch (error) {
-
-//         console.error("Resume Parse Error:", error);
-
-//         res.status(500).json({
-//             success: false,
-//             message: "Error parsing resume"
-//         });
-
-//     }
-
-// };
-
-// module.exports = {
-//     analyzeResume
-// };
 
 
 const fs = require("fs");
@@ -50,7 +14,7 @@ const analyzeResume = async (req, res) => {
 
     try {
 
-        console.log("ROUTE HIT");
+        // console.log("ROUTE HIT");
 
         if (!req.file) {
 
@@ -75,14 +39,14 @@ const analyzeResume = async (req, res) => {
                 req.file.path
             );
 
-        console.log(
-            "PDF Size:",
-            pdfBuffer.length
-        );
+        // console.log(
+        //     "PDF Size:",
+        //     pdfBuffer.length
+        // );
 
-        console.log(
-            "About to parse PDF..."
-        );
+        // console.log(
+        //     "About to parse PDF..."
+        // );
 
         const data =
             await pdfParse(
@@ -113,26 +77,7 @@ const analyzeResume = async (req, res) => {
             "Sending to Gemini..."
         );
 
-        // const analysis =
-        //     await analyzeResumeAI(
-        //         resumeText
-        //     );
 
-        // console.log(
-        //     "AI ANALYSIS:"
-        // );
-
-        // console.log(
-        //     analysis
-        // );
-
-        // return res.json({
-
-        //     success: true,
-
-        //     analysis
-
-        // });
 
         const analysis =
             await analyzeResumeAI(
@@ -157,9 +102,44 @@ const analyzeResume = async (req, res) => {
             JSON.parse(
                 cleanedAnalysis
             );
+        // const parsedAnalysis = {
 
+        //     atsScore: 80,
+
+        //     summary: "Test Summary",
+
+        //     skills: [
+
+        //         {
+        //             name: "Java",
+        //             score: 90
+        //         }
+
+        //     ],
+
+        //     strengths: [
+
+        //         "Problem Solving"
+
+        //     ],
+
+        //     improvements: [
+
+        //         "Add Projects"
+
+        //     ],
+
+        //     recommendedRoles: [
+
+        //         "Software Engineer"
+
+        //     ]
+
+        // };
         const savedAnalysis =
             await Analysis.create({
+                userId:
+                    req.body.userId,
 
                 atsScore:
                     parsedAnalysis.atsScore,

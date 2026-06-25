@@ -205,10 +205,20 @@ document
             "resume",
             file
         );
+        const user =
+            JSON.parse(
+                localStorage.getItem(
+                    "user"
+                )
+            );
 
+        formData.append(
+            "userId",
+            user.id
+        );
         try {
 
-            console.log("Before fetch");
+            // console.log("Before fetch");
             const btn =
                 document.querySelector(
                     ".analyze-btn"
@@ -229,7 +239,7 @@ document
                     }
                 );
 
-            console.log("After fetch");
+            // console.log("After fetch");
 
             const data =
                 await response.json();
@@ -239,9 +249,9 @@ document
                 data
             );
 
-            alert(
-                data.analysisId
-            );
+            // alert(
+            //     data.analysisId
+            // );
 
             if (
                 data.analysisId
@@ -262,7 +272,7 @@ document
                 error
             );
 
-            alert(error.message);
+            // alert(error.message);
 
 
 

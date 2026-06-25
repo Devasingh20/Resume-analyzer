@@ -9,13 +9,28 @@ async function loadHistory() {
 
     try {
 
+        // const response =
+        //     await fetch(
+        //         "/api/analysis"
+        //     );
+        const user =
+            JSON.parse(
+                localStorage.getItem(
+                    "user"
+                )
+            );
+
         const response =
             await fetch(
-                "/api/analysis"
+
+                `/api/analysis/user/${user.id}`
+
             );
 
         const analyses =
             await response.json();
+        // const analyses =
+        //     await response.json();
 
         if (
             !analyses.length
@@ -135,26 +150,29 @@ function renderHistory(
 
                     <div class="history-actions">
 
-                        <button
-                            class="view-btn"
-                            onclick="
-                            viewReport(
-                            '${analysis._id}'
-                            )
-                            "
-                        >
+    <button
+        class="view-btn"
+        onclick="viewReport('${analysis._id}')"
+    >
 
-                            <i class="
-                            fa-solid
-                            fa-eye
-                            ">
-                            </i>
+        <i class="fa-solid fa-eye"></i>
 
-                            View Report
+        View Report
 
-                        </button>
+    </button>
 
-                    </div>
+    <button
+        class="delete-btn"
+        onclick="deleteAnalysis('${analysis._id}')"
+    >
+
+        <i class="fa-solid fa-trash"></i>
+
+        Delete Report
+
+    </button>
+
+</div>
 
                 </div>
 
@@ -162,6 +180,58 @@ function renderHistory(
 
         }
     );
+
+}
+
+
+async function deleteAnalysis(id) {
+
+    const confirmDelete =
+        confirm(
+            "Delete this resume analysis?"
+        );
+
+    if (!confirmDelete) {
+
+        return;
+
+    }
+
+    try {
+
+        const response =
+            await fetch(
+
+                `/api/analysis/${id}`,
+
+                {
+
+                    method: "DELETE"
+
+                }
+
+            );
+
+        const data =
+            await response.json();
+
+        if (data.success) {
+
+            alert(
+                "Deleted Successfully"
+            );
+
+            loadHistory();
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+    }
 
 }
 
@@ -173,3 +243,7 @@ function viewReport(
         `/pages/dashboard.html?id=${analysisId}`;
 
 }
+
+document.getElementById('homeBtn').addEventListener('click', () => {
+    window.location.href = "public/index.html";
+});

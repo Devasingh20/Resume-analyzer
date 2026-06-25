@@ -1,0 +1,341 @@
+/* ==========================
+   Profile Overlay
+========================== */
+
+.profile-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(15, 23, 42, .45);
+
+    backdrop-filter: blur(8px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .35s;
+
+    z-index: 99999;
+
+}
+
+/* ==========================
+   Show Overlay
+========================== */
+
+.profile-overlay.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+/* ==========================
+   Modal
+========================== */
+
+.profile-modal {
+
+    width: 420px;
+
+    max-width: 92%;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    position: relative;
+
+    transform: scale(.8);
+
+    transition: .35s ease;
+
+    box-shadow:
+
+        0 30px 70px rgba(0, 0, 0, .15);
+
+}
+
+.profile-overlay.show .profile-modal {
+
+    transform: scale(1);
+
+}
+
+/* ==========================
+   Close Button
+========================== */
+
+.close-profile {
+
+    position: absolute;
+
+    top: 18px;
+
+    right: 18px;
+
+    border: none;
+
+    background: #f3f4f6;
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: .3s;
+
+}
+
+.close-profile:hover {
+
+    background: #e5e7eb;
+
+}
+
+/* ==========================
+   Avatar
+========================== */
+
+.profile-avatar {
+
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 5px solid #6366f1;
+
+    margin-bottom: 18px;
+
+}
+
+/* ==========================
+   Name
+========================== */
+
+.profile-modal h2 {
+
+    font-size: 28px;
+
+    color: #111827;
+
+    margin-bottom: 8px;
+
+}
+
+.profile-modal p {
+
+    color: #64748b;
+
+    font-size: 16px;
+
+}
+
+/* ==========================
+   Divider
+========================== */
+
+.profile-divider {
+
+    height: 1px;
+
+    background: #e5e7eb;
+
+    margin: 28px 0;
+
+}
+
+/* ==========================
+   Stats
+========================== */
+
+.profile-stats {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+}
+
+.profile-stat {
+
+    background: #f8fafc;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+}
+
+.profile-stat h3 {
+
+    font-size: 28px;
+
+    color: #4f46e5;
+
+    margin-bottom: 6px;
+
+}
+
+.profile-stat span {
+
+    font-size: 14px;
+
+    color: #64748b;
+
+}
+
+/* ==========================
+   Joined
+========================== */
+
+.profile-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+.profile-info div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #475569;
+
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.profile-buttons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+.profile-buttons button {
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 15px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.history-btn {
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 15px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.history-btn:hover {
+
+    background: #dbeafe;
+
+    transform: translateY(-2px);
+
+}
+
+.history-btn i {
+
+    margin-right: 8px;
+
+}
+
+.logout-btn {
+
+    background: linear-gradient(135deg, #5b5cf0, #7c3aed);
+
+    color: white;
+
+}
+
+.logout-btn:hover {
+
+    transform: translateY(-2px);
+
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media(max-width:768px) {
+
+    .profile-modal {
+
+        width: 95%;
+
+        padding: 25px;
+
+    }
+
+    .profile-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
