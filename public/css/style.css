@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: "Times New Roman", Times, serif;
 }
 
 html {
@@ -65,7 +65,7 @@ body {
     z-index: 1000;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -73,13 +73,14 @@ body {
     font-weight: 700;
 }
 
-.logo img{
+.logo img {
     height: 50px;
     width: auto;
 }
 
-.highlight{
-    color: #6366f1; /* Purple/Blue accent */
+.highlight {
+    color: #6366f1;
+    /* Purple/Blue accent */
 }
 
 .nav-links {
@@ -143,9 +144,11 @@ body {
     font-size: 28px;
     cursor: pointer;
 }
-#historyBtn{
-  cursor: pointer;
+
+#historyBtn {
+    cursor: pointer;
 }
+
 /* HERO */
 
 .hero {

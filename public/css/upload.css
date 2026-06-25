@@ -1,7 +1,9 @@
 /* =========================
    UPLOAD PAGE
 ========================= */
-
+*{
+     font-family: "Times New Roman", Times, serif;
+}
 body {
     background: url(../images/hero-bg.jpg);
     background-position: center;
