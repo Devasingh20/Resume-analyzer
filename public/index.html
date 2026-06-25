@@ -3,12 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="AI-powered Resume Analyzer that evaluates resumes with ATS scoring, skill analysis, career recommendations, and personalized feedback.">
+
+    <meta name="keywords"
+        content="Resume Analyzer, ATS Checker, Resume AI, Resume Score, Career Recommendations, Resume Review">
+
+    <meta name="author" content="Deva Singh">
+
+    <meta name="robots" content="index, follow">
 
     <title>Resume Analyzer AI</title>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/ats.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty/lib/themes/metroui.css" />
     <script src="https://cdn.jsdelivr.net/npm/noty/lib/noty.min.js"></script>
@@ -96,7 +108,7 @@
                     Upload Resume
                 </button>
 
-                <button class="secondary-btn">
+                <button class="secondary-btn" id="learnATSBtn">
                     Learn About ATS
                 </button>
 
@@ -604,8 +616,171 @@
         </div>
 
     </div>
+    <div class="ats-overlay" id="atsOverlay">
+
+        <div class="ats-modal">
+
+            <button class="close-ats" id="closeATS">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+            <h2>What is an Applicant Tracking System (ATS)?</h2>
+
+            <p>
+                An <strong>Applicant Tracking System (ATS)</strong> is recruitment
+                software used by companies to automate the hiring process.
+                Before a recruiter reviews your resume, the ATS scans it for
+                important information such as your skills, work experience,
+                education, certifications, projects, and keywords that match
+                the job description. Based on this analysis, the system ranks
+                resumes and helps recruiters identify the most relevant
+                candidates quickly.
+            </p>
+
+            <h3>Why Do Companies Use ATS?</h3>
+
+            <ul>
+
+                <li>✔ Automatically filters hundreds or even thousands of resumes.</li>
+
+                <li>✔ Matches resumes with the job description using keywords.</li>
+
+                <li>✔ Saves recruiters significant time during the hiring process.</li>
+
+                <li>✔ Maintains a searchable database of applicants.</li>
+
+                <li>✔ Helps ensure a consistent and organized recruitment workflow.</li>
+
+            </ul>
+
+            <h3>How ATS Evaluates Your Resume</h3>
+
+            <ul>
+
+                <li>📄 Looks for relevant technical and soft skills.</li>
+
+                <li>🔑 Checks whether your resume contains keywords from the job posting.</li>
+
+                <li>💼 Evaluates work experience and responsibilities.</li>
+
+                <li>🎓 Reviews education, certifications, and qualifications.</li>
+
+                <li>🛠 Analyzes projects, achievements, and measurable results.</li>
+
+                <li>📑 Detects proper section headings such as Education, Skills, Experience, and Projects.</li>
+
+            </ul>
+
+            <h3>How to Improve Your ATS Score</h3>
+
+            <ul>
+
+                <li>✔ Customize your resume for every job application.</li>
+
+                <li>✔ Include keywords from the job description naturally throughout your resume.</li>
+
+                <li>✔ Use clear section titles such as <strong>Skills</strong>, <strong>Experience</strong>, and
+                    <strong>Education</strong>.
+                </li>
+
+                <li>✔ Quantify your achievements with numbers and measurable results.</li>
+
+                <li>✔ Highlight relevant technical skills and certifications.</li>
+
+                <li>✔ Include recent and impactful projects.</li>
+
+                <li>✔ Keep formatting simple and ATS-friendly.</li>
+
+                <li>✔ Save your resume as a PDF when the employer accepts PDF submissions.</li>
+
+            </ul>
+
+            <h3>Common Mistakes That Reduce ATS Score</h3>
+
+            <ul>
+
+                <li>❌ Using images or graphics instead of text.</li>
+
+                <li>❌ Placing important information inside tables or text boxes.</li>
+
+                <li>❌ Using decorative fonts that are difficult to read.</li>
+
+                <li>❌ Missing job-specific keywords.</li>
+
+                <li>❌ Including spelling or grammar mistakes.</li>
+
+                <li>❌ Writing long paragraphs instead of concise bullet points.</li>
+
+                <li>❌ Applying with the same generic resume for every job.</li>
+
+            </ul>
+
+            <h3>ATS Score Interpretation</h3>
+
+            <div class="ats-score-guide">
+
+                <div>
+
+                    <strong>90 – 100</strong>
+
+                    <span>🟢 Excellent – Highly optimized and very likely to pass ATS screening.</span>
+
+                </div>
+
+                <div>
+
+                    <strong>75 – 89</strong>
+
+                    <span>🟢 Good – Strong resume with only minor improvements needed.</span>
+
+                </div>
+
+                <div>
+
+                    <strong>60 – 74</strong>
+
+                    <span>🟡 Average – Resume is acceptable but should include more relevant keywords, projects, or
+                        achievements.</span>
+
+                </div>
+
+                <div>
+
+                    <strong>Below 60</strong>
+
+                    <span>🔴 Needs Improvement – Resume may not pass ATS filters and should be optimized before
+                        applying.</span>
+
+                </div>
+
+            </div>
+
+            <h3>Pro Tips</h3>
+
+            <ul>
+
+                <li>💡 Read the job description carefully before updating your resume.</li>
+
+                <li>💡 Use action verbs such as <strong>Developed</strong>, <strong>Designed</strong>,
+                    <strong>Implemented</strong>, and <strong>Optimized</strong>.
+                </li>
+
+                <li>💡 Keep your resume concise (1–2 pages).</li>
+
+                <li>💡 Include GitHub, LinkedIn, or portfolio links if relevant.</li>
+
+                <li>💡 Update your resume regularly as you gain new skills and experience.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
     <script src="js/main.js"></script>
     <script src="js/profile.js"></script>
+    <script src="js/ats.js"></script>
 
 </body>
 

@@ -1,0 +1,291 @@
+/*==============================
+        ATS OVERLAY
+==============================*/
+body{
+    background-image: url(../images/hero-bg.jpg);
+    background-position: center;
+}
+.ats-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(15, 23, 42, .55);
+
+    backdrop-filter: blur(8px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .35s ease;
+
+    z-index: 99999;
+
+}
+
+/*==============================
+        SHOW MODAL
+==============================*/
+
+.ats-overlay.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+/*==============================
+        ATS MODAL
+==============================*/
+
+.ats-modal {
+
+    width: 750px;
+
+    max-width: 92%;
+
+    max-height: 88vh;
+
+    overflow-y: auto;
+
+    background: #fff;
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    position: relative;
+
+    transform: scale(.8);
+
+    transition: .35s ease;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, .18);
+
+}
+
+.ats-overlay.show .ats-modal {
+
+    transform: scale(1);
+
+}
+
+/*==============================
+        SCROLLBAR
+==============================*/
+
+.ats-modal::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+.ats-modal::-webkit-scrollbar-thumb {
+
+    background: #c7d2fe;
+
+    border-radius: 50px;
+
+}
+
+.ats-modal::-webkit-scrollbar-track {
+
+    background: transparent;
+
+}
+
+/*==============================
+        CLOSE BUTTON
+==============================*/
+
+.close-ats {
+
+    position: absolute;
+
+    top: 18px;
+
+    right: 18px;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f3f4f6;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+    font-size: 18px;
+
+}
+
+.close-ats:hover {
+
+    background: #6366f1;
+
+    color: white;
+
+}
+
+/*==============================
+        HEADINGS
+==============================*/
+
+.ats-modal h2 {
+
+    font-size: 34px;
+
+    color: #1e293b;
+
+    margin-bottom: 20px;
+
+}
+
+.ats-modal h3 {
+
+    margin-top: 28px;
+
+    margin-bottom: 15px;
+
+    color: #4f46e5;
+
+    font-size: 22px;
+
+}
+
+/*==============================
+        PARAGRAPH
+==============================*/
+
+.ats-modal p {
+
+    color: #475569;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+}
+
+/*==============================
+        LISTS
+==============================*/
+
+.ats-modal ul {
+
+    padding-left: 25px;
+
+}
+
+.ats-modal li {
+
+    margin: 12px 0;
+
+    color: #475569;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+}
+
+/*==============================
+        SCORE GUIDE
+==============================*/
+
+.ats-score-guide {
+
+    display: grid;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+.ats-score-guide div {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 22px;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+
+    border-left: 6px solid #6366f1;
+
+}
+
+.ats-score-guide strong {
+
+    font-size: 18px;
+
+    color: #1e293b;
+
+}
+
+.ats-score-guide span {
+
+    color: #475569;
+
+    text-align: right;
+
+}
+
+/*==============================
+        RESPONSIVE
+==============================*/
+
+@media(max-width:768px) {
+
+    .ats-modal {
+
+        width: 95%;
+
+        padding: 25px;
+
+    }
+
+    .ats-modal h2 {
+
+        font-size: 28px;
+
+    }
+
+    .ats-modal h3 {
+
+        font-size: 20px;
+
+    }
+
+    .ats-score-guide div {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+
+    }
+
+}
