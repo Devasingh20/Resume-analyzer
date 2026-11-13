@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sign Up | ResumeAnalyzer</title>
+    <title>Sign Up | ResumeIQ</title>
 
     <link rel="stylesheet" href="../css/auth.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -26,7 +26,7 @@
 
         <div class="logo">
             <img src="../images/icon.png" alt="Resume Analyzer Logo" height="50">
-            <span>Resume<span class="highlight">Analyzer</span></span>
+            <span>Resume<span class="highlight">IQ</span></span>
         </div>
 
     </nav>
@@ -36,7 +36,7 @@
 
             <div class="overlay">
 
-                <h1>ResumeAnalyzer</h1>
+                <h1>ResumeIQ</h1>
 
                 <p>
                     Create your account and unlock
@@ -55,7 +55,7 @@
                 <h2>Create Account</h2>
 
                 <p class="subtitle">
-                    Join ResumeAnalyzer today
+                    Join ResumeIQ today
                 </p>
 
                 <div class="input-group">
@@ -94,11 +94,11 @@
 
                 <div class="remember">
 
-                    <input type="checkbox" id="terms">
+                    <!-- <input type="checkbox" id="terms"> -->
 
-                    <label for="terms">
+                    <!-- <label for="terms">
                         I agree to the Terms & Conditions
-                    </label>
+                    </label> -->
 
                 </div>
 
@@ -125,7 +125,7 @@
     </div>
     <footer class="footer">
 
-        <h2>ResumeAnalyzer</h2>
+        <h2>ResumeIQ</h2>
 
         <p>
             AI Powered Resume Analysis Platform
@@ -135,30 +135,30 @@
 
             <a href="../index.html">Home</a>
             <a href="./history.html">History</a>
-            <a href="#">Learn about ATS</a>
+            <!-- <a href="#">Learn about ATS</a> -->
 
         </div>
         <div class="social-icons">
 
-            <a href="#">
+            <a href="https://github.com/Devasingh20">
                 <i class="fab fa-github"></i>
             </a>
 
-            <a href="#">
+            <a href="https://www.linkedin.com/in/deva-singh-687369418/">
                 <i class="fab fa-linkedin"></i>
             </a>
 
-            <a href="#">
-                <i class="fab fa-twitter"></i>
+            <a href="https://www.instagram.com/deva_singh20/">
+                <i class="fab fa-instagram"></i>
             </a>
 
-            <a href="#">
+            <a href="mailto:devasingh8102@gmail.com" aria-label="Email">
                 <i class="fas fa-envelope"></i>
             </a>
 
         </div>
         <p class="copyright">
-            © 2026 ResumeAnalyzer. All Rights Reserved.
+            © 2026 ResumeIQ. All Rights Reserved.
         </p>
 
     </footer>
@@ -206,8 +206,8 @@
                 const confirmPassword =
                     document.getElementById("confirmPassword").value.trim();
 
-                const terms =
-                    document.getElementById("terms").checked;
+                // const terms =
+                //     document.getElementById("terms").checked;
 
                 if (
                     !username ||
@@ -242,12 +242,12 @@
                     return;
                 }
 
-                if (!terms) {
+                // if (!terms) {
 
-                    showNoty(
-                        "error",
-                        "Please accept Terms & Conditions"
-                    );
+                //     showNoty(
+                //         "error",
+                //         "Please accept Terms & Conditions"
+                //     );
 
                     return;
                 }
