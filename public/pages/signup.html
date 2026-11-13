@@ -92,7 +92,7 @@
 
                 </div>
 
-                <div class="remember">
+                <!-- <div class="remember">
 
                     <input type="checkbox" id="terms">
 
@@ -100,7 +100,7 @@
                         I agree to the Terms & Conditions
                     </label>
 
-                </div>
+                </div> -->
 
                 <button type="submit" id="signupBtn">
 
@@ -208,8 +208,8 @@
                 const confirmPassword =
                     document.getElementById("confirmPassword").value.trim();
 
-                const terms =
-                    document.getElementById("terms").checked;
+                // const terms =
+                //     document.getElementById("terms").checked;
 
                 if (
                     !username ||
@@ -244,15 +244,15 @@
                     return;
                 }
 
-                if (!terms) {
+                // if (!terms) {
 
-                    showNoty(
-                        "error",
-                        "Please accept Terms & Conditions"
-                    );
+                //     showNoty(
+                //         "error",
+                //         "Please accept Terms & Conditions"
+                //     );
 
-                    return;
-                }
+                //     return;
+                // }
 
                 const button =
                     document.getElementById("signupBtn");
